@@ -15,10 +15,10 @@ First Piority :skull:
 
 ### Tech Stack ToDo
 
-- [ ] Choose relational database for hold id from nurse table and one to many relation for save nurse id
-- [ ] Choose Frontend Freamwork for views
-- [ ] Choose Front stacks which are tailwind,bootstrap etc.
-- [ ] Choose font type for designing topology
+- [x] Choose relational database for hold id from nurse table and one to many relation for save nurse id
+- [x] Choose Frontend Freamwork for views
+- [x] Choose Front stacks which are tailwind,bootstrap etc.
+- [x] Choose font type for designing topology
 - [ ] Choose Backend Lang and Freamwork for api calls
 - [ ] Create api for requested
 - [ ] Handle Json data which is refer to relational mapping
