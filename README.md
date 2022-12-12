@@ -20,7 +20,7 @@ First Piority :skull:
 - [x] Choose Front stacks which are tailwind,bootstrap etc.
 - [x] Choose font type for designing topology
 - [x] Choose Backend Lang and Freamwork for api calls
-- [ ] Create api for requested
-- [ ] Handle Json data which is refer to relational mapping
+- [x] Create api for requested
+- [x] Handle Json data which is refer to relational mapping
 - [x] Learn how to call from backend to serve frontend
 - [x] Research design pattern for handle project easily
