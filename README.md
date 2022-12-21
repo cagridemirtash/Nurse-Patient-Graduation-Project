@@ -6,6 +6,7 @@ My graduation project which is refer to Adana Science and Technology University
 
 First Piority :skull:
 
+- [ ] Authantication which is related to what kind of login in the app? Nurse, Admin or Patient 
 - [ ] Nurse view design
 - [ ] Patient view design
 - [ ] Admin panel design for add some situation from nurse and select by patient
