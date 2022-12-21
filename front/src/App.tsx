@@ -5,7 +5,7 @@ import { useState } from 'react';
 // Login -> Authentication
 // Navbar -> Bişiler Ekleriz
 // Main Nurse View -> Şu isimli hastanın şu şikayeti var -> Checkbox -> IsGood
-// Main Patient View -> Ağrım var, Açım, Kakam geldi
+// Main Patient View -> Ağrım var, Açım
 // Admin View -> Add situation -> IF PATIENT HUNGRY
 // Which nurse is related to Patient. -> Database
 // Save -> New view -> When patient clicked -> Send to Nurse
