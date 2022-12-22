@@ -1,23 +1,20 @@
-import * as React from 'react';
+
 import './App.css';
-import Hello from './components/Hello';
+import Navbar from './components/Navbar/Navbar'
 
-const logo = require('./logo.svg');
+interface AppProps {
+  name : string;
+  secondName?: string;
+}
 
-function App() {
+function App({name , secondName = "Default Text"} : AppProps){
   return (
-    <div className="App">
-      <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>Welcome to React</h2>
-      </div>
-      <p className="App-intro">
-        To get started, edit <code>src/App.tsx</code> and save to reload.
-      </p>
-      <Hello name="TypeScript" />
-    </div>
+    <>
+      <Navbar />
+      <h1>{name}</h1>
+      {secondName && <p>{secondName}</p>}
+    </>
   );
 }
 
 export default App;
-
