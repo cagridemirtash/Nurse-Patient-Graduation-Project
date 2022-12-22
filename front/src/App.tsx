@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar'
 import {AppProps} from './types/AppProps'
 import Button from '@mui/material/Button'
 
-function App({name , secondName = "Default Text"} : AppProps){
+function App(){
   const [user, setUser] = useState("userName");
   
   useEffect(() => {
@@ -14,10 +14,7 @@ function App({name , secondName = "Default Text"} : AppProps){
   return (
     <>
       <Navbar />
-      <h1>{name}</h1>
-      {secondName && <p>{secondName}</p>}
       {user}
-      <Button variant="contained">Hello World</Button>
     </>
   );
 }
