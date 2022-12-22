@@ -15,7 +15,7 @@ import '@fontsource/roboto/700.css';
 import Root from "./routes/root"
 import Login from "./components/Login/SignIn/index"
 import SignUp from "./components/Login/SignUp/index"
-
+import ErrorPage from "./components/Error/ErrorPage";
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
@@ -24,14 +24,17 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />
   },
   {
     path: "/signIn",
-    element: <Login />
+    element: <Login />,
+    errorElement: <ErrorPage />
   },
   {
     path: "/signUp",
-    element: <SignUp />
+    element: <SignUp />,
+    errorElement: <ErrorPage />
   }
 ]);
 
