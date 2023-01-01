@@ -9,7 +9,7 @@ First Piority :skull:
 - [ ] Authantication which is related to what kind of login in the app? Nurse, Admin or Patient 
 - [ ] Nurse view design
 - [ ] Patient view design
-- [ ] Admin panel design for add some situation from nurse and select by patient
+- [x] Admin panel design for add some situation from nurse and select by patient
 - [ ] Patient enter some information about yourself
 - [ ] Nurse can be easily accepted when patient enter some situation
 - [ ] The nurse view which has checkbox for controlling by yourself or others.
