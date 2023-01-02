@@ -11,7 +11,7 @@ First Piority :skull:
 - [ ] Nurse view design
 - [ ] Patient view design
 - [x] Admin panel design for add some situation from nurse and select by patient
-- [ ] Patient enter some information about yourself
+- [x] Patient enter some information about yourself
 - [ ] Nurse can be easily accepted when patient enter some situation
 - [ ] The nurse view which has checkbox for controlling by yourself or others.
 
