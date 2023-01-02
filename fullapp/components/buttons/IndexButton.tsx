@@ -4,9 +4,9 @@ export default function Button({ name, link }: ButtonInput) {
   return (
     <button
       type="button"
-      className="inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+      className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900 "
     >
-      <Link href={`/${link}`}>{name}</Link>
+      <Link href={`/users/${link}`}>{name}</Link>
     </button>
   );
 }

@@ -3,7 +3,7 @@ import { Inter } from "@next/font/google";
 import Button from "../components/buttons/IndexButton";
 
 const inter = Inter({ subsets: ["latin"] });
-
+const users = ["Nurse", "Patient", "Admin"];
 function Home() {
   return (
     <>
@@ -17,10 +17,12 @@ function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container mx-auto px-4">
-        <Button name="Nurse" link="nurse" />
-        <Button name="Patient" link="patient" />
-        <Button name="Admin" link="admin" />
+      <main>
+        <div className="columns-3xl flex justify-evenly">
+          {users.map((value: string) => (
+            <Button key={value} name={value} link={value.toLowerCase()} />
+          ))}
+        </div>
       </main>
     </>
   );
