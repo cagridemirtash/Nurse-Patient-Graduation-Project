@@ -1,7 +1,9 @@
+import Auth from "../../components/auth/Auth";
+
 export default function Nurse() {
   return (
     <>
-      <h1>This is Nurse Page</h1>
+      <Auth />
     </>
   );
 }
