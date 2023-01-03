@@ -1,6 +1,6 @@
 export default function Auth() {
   return (
-    <section className="h-screen">
+    <div className="h-screen">
       <div className="container px-6 py-12 h-full">
         <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
           <div className="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
@@ -11,7 +11,7 @@ export default function Auth() {
             />
           </div>
           <div className="md:w-8/12 lg:w-5/12 lg:ml-20">
-            <form>
+            <form method="post">
               {/* Email input */}
               <div className="mb-6">
                 <input
@@ -43,12 +43,6 @@ export default function Auth() {
                     Remember me
                   </label>
                 </div>
-                <a
-                  href="#!"
-                  className="text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out"
-                >
-                  Forgot password?
-                </a>
               </div>
 
               {/* Submit Button */}
@@ -64,6 +58,6 @@ export default function Auth() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

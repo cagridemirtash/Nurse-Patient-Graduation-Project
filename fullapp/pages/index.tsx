@@ -18,7 +18,7 @@ function Home() {
       </Head>
 
       <main>
-        <div className="columns-3xl flex justify-evenly">
+        <div className="flex justify-evenly">
           {users.map((value: string) => (
             <Button key={value} name={value} link={value.toLowerCase()} />
           ))}

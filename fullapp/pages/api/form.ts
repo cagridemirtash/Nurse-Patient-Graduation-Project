@@ -13,7 +13,6 @@ export default function handler(
 ) {
   // Get data submitted in request's body.
   const body = req.body;
-
   console.log("body: ", body);
 
   return res.status(200).json({
