@@ -7,7 +7,7 @@ The Tech Stack -> Just Javascript and Typescript
 
 First Piority :skull:
 
-- [ ] Authantication which is related to what kind of login in the app? Nurse, Admin or Patient 
+- [x] Authantication which is related to what kind of login in the app? Nurse, Admin or Patient 
 - [ ] Nurse view design
 - [ ] Patient view design
 - [x] Admin panel design for add some situation from nurse and select by patient
