@@ -1,14 +1,12 @@
 import Head from "next/head";
-import { Inter } from "@next/font/google";
 import Button from "../components/buttons/IndexButton";
 
-const inter = Inter({ subsets: ["latin"] });
 const users = ["Nurse", "Patient", "Admin"];
 function Home() {
   return (
     <>
       <Head>
-        <title>Nurso</title>
+        <title>Nursolo</title>
         <meta
           name="description"
           content="Nurso is a application which is related to hospital management system"
