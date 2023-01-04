@@ -17,3 +17,9 @@ model patient {
   patient_complaint String
   description String?
 }
+
+model users{
+  user_id   Int     @id @default(autoincrement())
+  user_name String
+  user_password String
+}

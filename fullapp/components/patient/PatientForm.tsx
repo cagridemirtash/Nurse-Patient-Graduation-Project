@@ -15,6 +15,7 @@ export default function PatientForm() {
       patientComplaint: form.patientComplaint.value as string,
       description: form.detail.value as string,
     };
+
     // Send the form data to our API and get a response.
     const response = await fetch("/api/form", {
       // Body of the request is the JSON data we created above.
@@ -23,13 +24,10 @@ export default function PatientForm() {
       headers: {
         "Content-Type": "application/json",
       },
-      // The method is POST because we are sending data.
       method: "POST",
     });
-
-    // Get the response data from server as JSON.
-    // If server returns the name submitted, that means the form works.
-    console.log(response);
+    //Set local storage for click and the detail page
+    localStorage.setItem("patientUser", form.fullName);
   };
 
   return (
