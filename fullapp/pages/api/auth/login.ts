@@ -1,7 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { PrismaClient } from "@prisma/client";
-import { User } from "../../../types/user";
-import { TempUser } from "../../../types/tempUser";
 
 const prisma = new PrismaClient();
 
@@ -29,5 +27,5 @@ export default async function handler(
         process.exit(1);
       });
   const user = userFetch(body);
-  res.status(200).json({ name: user });
+  res.status(200).json({ name: "Çağrı" });
 }
