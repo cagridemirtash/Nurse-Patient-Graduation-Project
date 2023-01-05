@@ -1,4 +1,32 @@
+import { HttpStatusCode } from "axios";
+import { FormEvent, useState } from "react";
+import { User } from "../../types/user";
+
 export default function Auth() {
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+
+  const data: User = {
+    username: userName,
+    password: password,
+  };
+
+  const onSubmit = async (event: FormEvent) => {
+    event.preventDefault();
+    const response = await fetch("/api/auth/login", {
+      // Body of the request is the JSON data we created above.
+      body: JSON.stringify(data),
+      // Tell the server we're sending JSON.
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+
+    if (response.ok) {
+    }
+  };
+
   return (
     <div className="h-screen">
       <div className="container mx-auto px-6 py-12 h-full">
@@ -18,6 +46,7 @@ export default function Auth() {
                   type="text"
                   className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                   placeholder="Username"
+                  onChange={(e) => setUserName(e.target.value)}
                 />
               </div>
               {/* Password input */}
@@ -26,29 +55,14 @@ export default function Auth() {
                   type="password"
                   className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                   placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-
-              <div className="flex justify-between items-center mb-6">
-                <div className="form-group form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-gray-600 checked:border-gray-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                    id="exampleCheck3"
-                  />
-                  <label
-                    className="form-check-label inline-block text-gray-800"
-                    htmlFor="exampleCheck2"
-                  >
-                    Remember me
-                  </label>
-                </div>
-              </div>
-
               {/* Submit Button */}
               <button
                 type="submit"
                 className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"
+                onClick={onSubmit}
                 data-mdb-ripple="true"
                 data-mdb-ripple-color="light"
               >
