@@ -27,7 +27,7 @@ export default function PatientForm() {
       method: "POST",
     });
     //Set local storage for click and the detail page
-    localStorage.setItem("patientUser", form.fullName);
+    console.log("Response", response);
   };
 
   return (

@@ -22,8 +22,8 @@ export default function Auth() {
       },
       method: "POST",
     });
-
     if (response.ok) {
+      console.log("Okey baby, u can do it");
     }
   };
 
