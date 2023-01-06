@@ -11,7 +11,7 @@ export default async function handler(
 ) {
   // Get data submitted in request's body.
   const body = req.body;
-
+  let fullName: string = "";
   const patient = await prisma.patient
     .create({
       data: {
@@ -21,7 +21,8 @@ export default async function handler(
         description: body.description,
       },
     })
-    .then(async () => {
+    .then(async (response) => {
+      fullName = response.full_name;
       await prisma.$disconnect();
     })
     .catch(async (e) => {
@@ -30,7 +31,5 @@ export default async function handler(
       process.exit(1);
     });
   console.log(patient);
-  return res
-    .status(200)
-    .json({ message: `Welcome the nursolo ${body.full_name}` });
+  return res.status(200).json({ message: `Welcome the nursolo ${fullName}` });
 }

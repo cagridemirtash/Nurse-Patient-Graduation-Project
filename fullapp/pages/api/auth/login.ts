@@ -3,29 +3,36 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
+type Data = {
+  login: string;
+};
+
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<any>
+  res: NextApiResponse<Data>
 ) {
   const body = req.body;
+  let match: boolean = false;
   console.log("Body", body);
 
-  const userFetch = (body: any) =>
-    prisma.users
-      .findMany({
-        where: {
-          user_name: body.username,
-          user_password: body.password,
-        },
-      })
-      .then(async () => {
-        await prisma.$disconnect();
-      })
-      .catch(async (e) => {
-        console.error(e);
-        await prisma.$disconnect();
-        process.exit(1);
+  const allUser = prisma.users
+    .findMany()
+    .then(async (result) => {
+      result.map((user) => {
+        if (
+          user.user_name === body.username &&
+          user.user_password === body.password
+        ) {
+          match = true;
+        }
       });
-  const user = userFetch(body);
-  res.status(200).json({ name: "Çağrı" });
+      await prisma.$disconnect();
+    })
+    .catch(async (e) => {
+      console.error(e);
+      await prisma.$disconnect();
+      process.exit(1);
+    });
+
+  res.status(200).json({ login: `${match}` });
 }

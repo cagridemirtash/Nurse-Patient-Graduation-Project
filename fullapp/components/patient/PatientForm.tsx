@@ -1,6 +1,10 @@
+import { useRouter } from "next/router";
 import { FormEvent } from "react";
+import { render } from "react-dom";
+import PatientSelectDetail from "./PatientSelectDetail";
 
 export default function PatientForm() {
+  const router = useRouter();
   const handleSubmit = async (event: FormEvent) => {
     // Stop the form from submitting and refreshing the page.
     event.preventDefault();
@@ -27,7 +31,9 @@ export default function PatientForm() {
       method: "POST",
     });
     //Set local storage for click and the detail page
-    console.log("Response", response);
+    if (response.ok) {
+      return <PatientSelectDetail fullName={form.fullName} />;
+    }
   };
 
   return (
