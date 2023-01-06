@@ -23,7 +23,8 @@ export default function Auth() {
       },
       method: "POST",
     });
-    setResponseStatus(true);
+    console.log(response.status);
+    setResponseStatus(response.status === 200 ? true : false);
   };
 
   return (

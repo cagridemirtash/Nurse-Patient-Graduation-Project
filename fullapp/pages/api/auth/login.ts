@@ -2,37 +2,31 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
-
-type Data = {
-  login: string;
-};
-
+let match: boolean = false;
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<any>
 ) {
   const body = req.body;
-  let match: boolean = false;
-  console.log("Body", body);
+  console.log("Body", body.username, body.password);
 
-  const allUser = prisma.users
-    .findMany()
-    .then(async (result) => {
-      result.map((user) => {
-        if (
-          user.user_name === body.username &&
-          user.user_password === body.password
-        ) {
-          match = true;
-        }
-      });
-      await prisma.$disconnect();
-    })
-    .catch(async (e) => {
-      console.error(e);
-      await prisma.$disconnect();
-      process.exit(1);
+  const allUser = prisma.users.findMany();
+
+  await allUser.then(async (response) => {
+    console.log("Response", response);
+    response.forEach((user) => {
+      console.log("User", user);
+      if (
+        user.user_name === body.username &&
+        user.user_password === body.password
+      ) {
+        match = true;
+      }
     });
+    await prisma.$disconnect();
+  });
 
-  res.status(200).json({ login: `${match}` });
+  return match
+    ? res.status(200).json({ login: `${match}` })
+    : res.status(401).json({ message: "Invalid credentials" });
 }
