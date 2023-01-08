@@ -5,7 +5,11 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        nursolo: "url(../public/accuray-S34fEzWT6eE-unsplash.jpg)",
+      },
+    },
   },
   plugins: [],
 };
