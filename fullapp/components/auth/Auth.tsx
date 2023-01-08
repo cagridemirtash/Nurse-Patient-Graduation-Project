@@ -23,7 +23,9 @@ export default function Auth() {
       },
       method: "POST",
     });
-    console.log(response.status);
+    //This callback is when the response is received and add a token to local storage
+    console.log(response.json().then((data) => console.log(data.login)));
+
     setResponseStatus(response.status === 200 ? true : false);
   };
 

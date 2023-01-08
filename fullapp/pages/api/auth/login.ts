@@ -12,20 +12,25 @@ export default async function handler(
 
   const allUser = prisma.users.findMany();
 
-  await allUser.then(async (response) => {
-    console.log("Response", response);
-    response.forEach((user) => {
-      console.log("User", user);
-      if (
-        user.user_name === body.username &&
-        user.user_password === body.password
-      ) {
-        match = true;
-      }
+  await allUser
+    .then(async (response) => {
+      console.log("Response", response);
+      response.forEach((user) => {
+        console.log("User", user);
+        if (
+          user.user_name === body.username &&
+          user.user_password === body.password
+        ) {
+          match = true;
+        }
+      });
+      await prisma.$disconnect();
+    })
+    .catch(async (e) => {
+      console.error(e);
+      await prisma.$disconnect();
+      process.exit(1);
     });
-    await prisma.$disconnect();
-  });
-
   return match
     ? res.status(200).json({ login: `${match}` })
     : res.status(401).json({ message: "Invalid credentials" });
