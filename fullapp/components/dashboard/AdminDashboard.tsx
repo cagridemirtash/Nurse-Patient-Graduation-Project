@@ -4,8 +4,8 @@ export default function AdminDashboard() {
     <>
       <div className="flex flex-row">
         <Sidebar />
-        <div className="basis-3/4">
-          This is a content which add or remove situation
+        <div className="h-auto bg-gray-900 basis-3/4 rounded-lg">
+          <div className="block text-center text-cyan-600">Admin Dashboard</div>
         </div>
       </div>
     </>

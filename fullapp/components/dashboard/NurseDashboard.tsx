@@ -1,4 +1,31 @@
+import { useEffect, useState } from "react";
+
 export default function NurseDashboard() {
+  const [patients, setPatients] = useState<Patient[]>([]);
+
+  type Patient = {
+    id: number;
+    full_name: string;
+    bed_number: string;
+    patient_complaint: string;
+    description: string;
+  };
+
+  useEffect(() => {
+    const url = "http://localhost:3000/api/fetch-patient";
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const json = await response.json();
+        setPatients(json);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+    setInterval(fetchData, 5000);
+  }, []);
+
   return (
     <>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -6,118 +33,47 @@ export default function NurseDashboard() {
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
-                Product name
+                Patient Name
               </th>
               <th scope="col" className="px-6 py-3">
-                Color
+                Bed Number
               </th>
               <th scope="col" className="px-6 py-3">
-                Category
+                Complaint
               </th>
               <th scope="col" className="px-6 py-3">
-                Price
+                Detail
               </th>
               <th scope="col" className="px-6 py-3">
-                Action
+                Discharge
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+            {patients.map((item, index) => (
+              <tr
+                key={index}
+                className="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
               >
-                Apple MacBook Pro 17"
-              </th>
-              <td className="px-6 py-4">Sliver</td>
-              <td className="px-6 py-4">Laptop</td>
-              <td className="px-6 py-4">$2999</td>
-              <td className="px-6 py-4">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  Edit
-                </a>
-              </td>
-            </tr>
-            <tr className="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-              >
-                Microsoft Surface Pro
-              </th>
-              <td className="px-6 py-4">White</td>
-              <td className="px-6 py-4">Laptop PC</td>
-              <td className="px-6 py-4">$1999</td>
-              <td className="px-6 py-4">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                >
-                  Edit
-                </a>
-              </td>
-            </tr>
-            <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-              >
-                Magic Mouse 2
-              </th>
-              <td className="px-6 py-4">Black</td>
-              <td className="px-6 py-4">Accessories</td>
-              <td className="px-6 py-4">$99</td>
-              <td className="px-6 py-4">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                >
-                  Edit
-                </a>
-              </td>
-            </tr>
-            <tr className="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-              >
-                Google Pixel Phone
-              </th>
-              <td className="px-6 py-4">Gray</td>
-              <td className="px-6 py-4">Phone</td>
-              <td className="px-6 py-4">$799</td>
-              <td className="px-6 py-4">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                >
-                  Edit
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-              >
-                Apple Watch 5
-              </th>
-              <td className="px-6 py-4">Red</td>
-              <td className="px-6 py-4">Wearables</td>
-              <td className="px-6 py-4">$999</td>
-              <td className="px-6 py-4">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                >
-                  Edit
-                </a>
-              </td>
-            </tr>
+                  {item.full_name}
+                </th>
+                <td className="px-6 py-4">{item.bed_number}</td>
+                <td className="px-6 py-4">{item.patient_complaint}</td>
+                <td className="px-6 py-4">{item.description}</td>
+                <td className="px-6 py-4">
+                  <button
+                    type="button"
+                    className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                  >
+                    Yes
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
