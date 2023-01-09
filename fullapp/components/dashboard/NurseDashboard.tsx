@@ -12,7 +12,7 @@ export default function NurseDashboard() {
   };
 
   useEffect(() => {
-    const url = "http://localhost:3000/api/fetch-patient";
+    const url = "http://localhost:3000/api/patient/fetch-patient";
 
     const fetchData = async () => {
       try {
@@ -26,6 +26,26 @@ export default function NurseDashboard() {
     setInterval(fetchData, 5000);
   }, []);
 
+  const handleClick = (id: number) => {
+    console.log(id);
+    const url = "http://localhost:3000/api/patient/delete-patient";
+    const fetchPatient = async () => {
+      try {
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ id }),
+        });
+        const json = await response.json();
+        console.log(json);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+    fetchPatient();
+  };
   return (
     <>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -68,6 +88,9 @@ export default function NurseDashboard() {
                   <button
                     type="button"
                     className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                    onClick={() => {
+                      handleClick(item.id);
+                    }}
                   >
                     Yes
                   </button>
