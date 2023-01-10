@@ -12,9 +12,11 @@ export default function PatientSelectDetail({ fullName }: any) {
   ];
   return (
     <>
-      {detailArr.map((detail) => (
-        <PatientCard key={detail} fullName={fullName} detail={detail} />
-      ))}
+      <div className="grid grid-cols-5 text-center">
+        {detailArr.map((detail) => (
+          <PatientCard key={detail} fullName={fullName} detail={detail} />
+        ))}
+      </div>
     </>
   );
 }

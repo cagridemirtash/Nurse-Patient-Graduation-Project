@@ -8,15 +8,12 @@ export default async function handler(
   res: NextApiResponse<any>
 ) {
   const body = req.body;
-  console.log("Body", body.username, body.password);
 
   const allUser = prisma.users.findMany();
 
   await allUser
     .then(async (response) => {
-      console.log("Response", response);
       response.forEach((user) => {
-        console.log("User", user);
         if (
           user.user_name === body.username &&
           user.user_password === body.password

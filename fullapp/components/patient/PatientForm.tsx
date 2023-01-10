@@ -44,7 +44,7 @@ export default function PatientForm() {
         <PatientSelectDetail fullName={fullName} />
       ) : (
         <div className="flex flex-col justify-center items-center border-2 md:my-36 rounded-3xl  border- bg-emerald-300">
-          <form onSubmit={handleSubmit} method="post">
+          <form onSubmit={handleSubmit} method="post" autoComplete="off">
             {/* Hasta adı */}
             <div className="mb-6">
               <label

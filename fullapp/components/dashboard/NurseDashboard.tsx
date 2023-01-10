@@ -23,7 +23,7 @@ export default function NurseDashboard() {
         console.log("error", error);
       }
     };
-    setInterval(fetchData, 5000);
+    setInterval(fetchData, 2000);
   }, []);
 
   const handleClick = (id: number) => {
