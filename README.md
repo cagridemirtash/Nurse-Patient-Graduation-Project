@@ -1,19 +1,19 @@
-# Nurse-Patient-Graduation-Project
+# Nurse-Patient-Graduation-Project - 
 
 My graduation project which is refer to Adana Science and Technology University
 The Tech Stack -> Just Javascript and Typescript
 
 ### ToDo
 
-First Piority :skull:
+First Piority :skull: 
 
 - [x] Authantication which is related to what kind of login in the app? Nurse, Admin or Patient 
 - [x] Nurse view design
 - [x] Patient view design
 - [x] Admin panel design for add some situation from nurse and select by patient
 - [x] Patient enter some information about yourself
-- [ ] Nurse can be easily accepted when patient enter some situation
-- [ ] The nurse view which has checkbox for controlling by yourself or others.
+- [x] Nurse can be easily accepted when patient enter some situation
+- [x] The nurse view which has checkbox for controlling by yourself or others.
 
 ### Tech Stack ToDo
 
