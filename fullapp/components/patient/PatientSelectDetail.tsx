@@ -1,4 +1,3 @@
-import Link from "next/link";
 import PatientCard from "./PatientCard";
 
 export default function PatientSelectDetail({ fullName }: any) {

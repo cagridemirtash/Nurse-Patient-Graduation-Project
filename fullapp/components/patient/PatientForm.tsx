@@ -1,10 +1,7 @@
-import { useRouter } from "next/router";
 import { FormEvent, useState } from "react";
-import { render } from "react-dom";
 import PatientSelectDetail from "./PatientSelectDetail";
 
 export default function PatientForm() {
-  const router = useRouter();
   const [detail, setDetail] = useState(false);
   const [fullName, setFullName] = useState("");
   const handleSubmit = async (event: FormEvent) => {

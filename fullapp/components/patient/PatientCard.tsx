@@ -1,6 +1,4 @@
-import Link from "next/link";
-
-export default function PatientCard({ id, detail, fullName }: any) {
+export default function PatientCard({ detail, fullName }: any) {
   const handleClick = (fullName: string, detail: string) => {
     const url = "http://localhost:3000/api/patient/update-patient";
     const fetchPatient = async () => {
