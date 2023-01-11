@@ -1,8 +1,7 @@
-import { HttpStatusCode } from "axios";
 import { FormEvent, useState } from "react";
 import { User } from "../../types/user";
-import AdminDashboard from "../dashboard/AdminDashboard";
-import NurseDashboard from "../dashboard/NurseDashboard";
+import AdminDashboard from "../../container/dashboard/AdminDashboard";
+import NurseDashboard from "../../container/dashboard/NurseDashboard";
 
 export default function Auth() {
   const [userName, setUserName] = useState("");

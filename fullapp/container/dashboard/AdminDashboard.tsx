@@ -1,4 +1,5 @@
-import Sidebar from "../sidebar/Sidebar";
+import DashboardView from "../../components/dashboard";
+import Sidebar from "../../components/sidebar/Sidebar";
 export default function AdminDashboard() {
   return (
     <>
@@ -6,6 +7,7 @@ export default function AdminDashboard() {
         <Sidebar />
         <div className="h-auto bg-gray-900 basis-3/4 rounded-lg">
           <div className="block text-center text-cyan-600">Admin Dashboard</div>
+          <div className="block text-center text-cyan-100"></div>
         </div>
       </div>
     </>
