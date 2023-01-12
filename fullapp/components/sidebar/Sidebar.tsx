@@ -4,9 +4,6 @@ export default function Sidebar() {
   const sideItemArr = SidebarData;
 
   //Set data to local storage for get a component from who is -> Admin, User, Patient
-  const handleClick = (component: string) => {
-    localStorage.setItem("component", component);
-  };
 
   return (
     <aside
@@ -19,9 +16,6 @@ export default function Sidebar() {
             <li
               key={index}
               className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-              onClick={() => {
-                handleClick(item.title.toLowerCase());
-              }}
             >
               <span className="bg-white rounded-lg h-4 w-4">{item.icon}</span>
               <span className="ml-3">{item.title}</span>

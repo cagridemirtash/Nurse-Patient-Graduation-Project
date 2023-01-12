@@ -1,4 +1,3 @@
-import DashboardView from "../../components/dashboard";
 import Sidebar from "../../components/sidebar/Sidebar";
 export default function AdminDashboard() {
   return (
