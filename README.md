@@ -26,3 +26,5 @@ First Piority :skull:
 - [x] Handle Json data which is refer to relational mapping
 - [x] Learn how to call from backend to serve frontend
 - [x] Research design pattern for handle project easily
+
+![Nursolo](https://github.com/cagridemirtash/Nurse-Patient-Graduation-Project/blob/main/document/Nursolo.jpg?raw=true)
