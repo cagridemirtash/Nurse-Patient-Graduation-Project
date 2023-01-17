@@ -1,4 +1,3 @@
-Headless UI
-Tailwind
-Next
-Prisma
+#Install Dependencies And Run
+- npm install
+- npm run dev
