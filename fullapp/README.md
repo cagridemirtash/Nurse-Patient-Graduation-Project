@@ -1,3 +1,3 @@
-#Install Dependencies And Run
+# Install Dependencies And Run
 - npm install
 - npm run dev
